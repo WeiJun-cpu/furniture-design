@@ -15,17 +15,18 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
             color: #333;
             line-height: 1.6;
-            background: #fff;
+            background: radial-gradient(circle at top left, #f0f7ff 0%, #ffffff 45%, #f7f9fc 100%);
         }
 
         /* 导航栏 */
         .header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.9);
+            box-shadow: 0 2px 20px rgba(15, 35, 52, 0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
             padding: 15px 0;
+            backdrop-filter: blur(12px);
         }
 
         .nav-container {
@@ -38,10 +39,12 @@
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 2px;
             color: #2ecc71;
             text-decoration: none;
+            text-transform: uppercase;
         }
 
         .nav-links {
@@ -52,32 +55,42 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
-            font-size: 16px;
-            transition: color 0.3s;
+            color: #555;
+            font-size: 15px;
+            letter-spacing: 0.5px;
             position: relative;
+            padding-bottom: 4px;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2ecc71, #27ae60);
+            border-radius: 999px;
+            transition: width 0.25s ease;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
             color: #2ecc71;
+            transform: translateY(-1px);
         }
 
+        .nav-links a:hover::after,
         .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
             width: 100%;
-            height: 2px;
-            background: #2ecc71;
         }
 
         /* 主横幅 */
         .hero {
             position: relative;
-            height: 600px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 560px;
+            background: radial-gradient(circle at 10% 20%, #6dd5ed 0%, #2193b0 45%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -104,16 +117,24 @@
             padding: 0 20px;
         }
 
+        .hero-brand {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: 8px;
+            margin-bottom: 24px;
+        }
+
         .hero h1 {
             font-size: 48px;
-            margin-bottom: 20px;
-            font-weight: 700;
+            margin-bottom: 16px;
+            font-weight: 800;
+            letter-spacing: 2px;
         }
 
         .hero p {
             font-size: 20px;
             margin-bottom: 30px;
-            opacity: 0.95;
+            opacity: 0.96;
         }
 
         .hero-tags {
@@ -125,29 +146,32 @@
         }
 
         .tag {
-            background: rgba(255,255,255,0.2);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            backdrop-filter: blur(10px);
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.5), rgba(255,255,255,0.15));
+            padding: 6px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.4);
         }
 
         .btn-more {
             display: inline-block;
             padding: 12px 40px;
-            background: #2ecc71;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
             color: white;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 999px;
             font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+            letter-spacing: 1px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.4);
         }
 
         .btn-more:hover {
-            background: #27ae60;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+            background: linear-gradient(135deg, #27ae60, #1f9a4e);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 14px 40px rgba(46, 204, 113, 0.55);
+            opacity: 0.96;
         }
 
         /* 产品分类快速链接 */
@@ -166,35 +190,37 @@
         .category-item {
             text-align: center;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: transform 0.25s ease, filter 0.25s ease;
         }
 
         .category-item:hover {
             transform: translateY(-5px);
+            filter: drop-shadow(0 12px 24px rgba(0,0,0,0.18));
         }
 
         .category-icon {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             margin: 0 auto 15px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 24px;
+            background: linear-gradient(145deg, #f5f7fa 0%, #e4ecff 40%, #d3e4ff 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 48px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-size: 42px;
+            box-shadow: 0 8px 24px rgba(15, 35, 52, 0.15);
         }
 
         .category-label {
-            font-size: 16px;
+            font-size: 15px;
             color: #333;
-            font-weight: 500;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         /* 品牌理念 */
         .brand-message {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa 0%, #eef5ff 50%, #f9fbff 100%);
             padding: 60px 20px;
             text-align: center;
         }
@@ -205,16 +231,17 @@
         }
 
         .brand-logo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            background: #2ecc71;
-            border-radius: 50%;
+            width: 88px;
+            height: 88px;
+            margin: 0 auto 24px;
+            background: radial-gradient(circle at top left, #2ecc71, #27ae60);
+            border-radius: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 40px;
             color: white;
+            box-shadow: 0 14px 40px rgba(46, 204, 113, 0.45);
         }
 
         .brand-text {
@@ -224,9 +251,9 @@
         }
 
         .brand-text-en {
-            font-size: 14px;
-            color: #888;
-            letter-spacing: 2px;
+            font-size: 13px;
+            color: #9aa4b2;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
@@ -239,10 +266,11 @@
 
         .section-title {
             text-align: center;
-            font-size: 36px;
+            font-size: 32px;
             margin-bottom: 50px;
-            color: #333;
+            color: #1e293b;
             position: relative;
+            letter-spacing: 1px;
         }
 
         .section-title::after {
@@ -251,9 +279,11 @@
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: #2ecc71;
+            width: 72px;
+            height: 4px;
+            background: linear-gradient(90deg, #2ecc71, #27ae60);
+            border-radius: 999px;
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.45);
         }
 
         .products-grid {
@@ -263,23 +293,25 @@
         }
 
         .product-card {
-            background: #fff;
-            border-radius: 10px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            box-shadow: 0 10px 35px rgba(15, 35, 52, 0.15);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
             cursor: pointer;
+            border: 1px solid rgba(148,163,184,0.12);
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 18px 45px rgba(15, 35, 52, 0.25);
+            border-color: rgba(34,197,94,0.3);
         }
 
         .product-image {
             width: 100%;
             height: 250px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #0f172a;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -289,49 +321,27 @@
             overflow: hidden;
         }
 
-        .product-image::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(255,255,255,0.1) 10px,
-                rgba(255,255,255,0.1) 20px
-            );
-            animation: slide 20s linear infinite;
-        }
-
-        @keyframes slide {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
         .product-info {
-            padding: 20px;
+            padding: 18px 20px 20px;
         }
 
         .product-name {
-            font-size: 18px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
+            font-size: 17px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
         }
 
         .product-desc {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
+            font-size: 13px;
+            color: #6b7280;
+            line-height: 1.7;
         }
 
         /* 产品系列展示 */
         .product-series {
             max-width: 1200px;
-            margin: 80px auto;
+            margin: 80px auto 90px;
             padding: 0 20px;
         }
 
@@ -344,21 +354,22 @@
         .series-card {
             position: relative;
             height: 400px;
-            border-radius: 10px;
+            border-radius: 18px;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 16px 45px rgba(15, 35, 52, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .series-card:hover {
-            transform: scale(1.02);
+            transform: translateY(-6px);
+            box-shadow: 0 24px 60px rgba(15, 35, 52, 0.35);
         }
 
         .series-image {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: radial-gradient(circle at 20% 0%, #6366f1 0%, #0f172a 55%, #020617 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -372,8 +383,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(15,23,42,0.2), transparent);
+            padding: 26px 26px 24px;
             color: white;
         }
 
@@ -384,45 +395,137 @@
         }
 
         .series-thumbnails img {
-            width: 80px;
-            height: 80px;
+            width: 72px;
+            height: 72px;
             object-fit: cover;
-            border-radius: 6px;
-            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            border: 2px solid rgba(255,255,255,0.4);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
         }
 
         .series-title {
-            font-size: 28px;
-            margin-bottom: 10px;
+            font-size: 24px;
+            margin-bottom: 8px;
             font-weight: 700;
         }
 
         .series-desc {
-            font-size: 16px;
-            margin-bottom: 20px;
+            font-size: 14px;
+            margin-bottom: 16px;
             opacity: 0.9;
         }
 
         .series-btn {
             display: inline-block;
-            padding: 10px 30px;
-            background: #2ecc71;
+            padding: 9px 28px;
+            background: linear-gradient(135deg, #2ecc71, #22c55e);
             color: white;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 999px;
             font-weight: 600;
-            transition: all 0.3s;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+            box-shadow: 0 10px 28px rgba(34,197,94,0.6);
         }
 
         .series-btn:hover {
-            background: #27ae60;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(22,163,74,0.7);
+        }
+
+        /* 微信弹层 */
+        .wechat-modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15,23,42,0.55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .wechat-modal-backdrop.show {
+            display: flex;
+        }
+
+        .wechat-modal {
+            width: 320px;
+            background: #0f172a;
+            border-radius: 18px;
+            padding: 20px 22px 18px;
+            box-shadow: 0 22px 60px rgba(0,0,0,0.6);
+            color: #e5e7eb;
+            position: relative;
+        }
+
+        .wechat-modal-close {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #9ca3af;
+        }
+
+        .wechat-modal-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .wechat-modal-text {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 10px;
+        }
+
+        .wechat-modal-wechat {
+            font-size: 18px;
+            font-weight: 700;
+            color: #22c55e;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .wechat-modal-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wechat-modal-btn {
+            padding: 7px 16px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .wechat-modal-btn-copy {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: #ecfdf5;
+            box-shadow: 0 10px 24px rgba(22,163,74,0.7);
+        }
+
+        .wechat-modal-btn-copy:active {
+            transform: translateY(1px);
+            box-shadow: 0 6px 18px rgba(22,163,74,0.6);
+        }
+
+        .wechat-modal-hint {
+            font-size: 12px;
+            color: #9ca3af;
         }
 
         /* 页脚 */
         .footer {
-            background: #2c3e50;
+            background: radial-gradient(circle at top, #111827 0%, #020617 45%, #020617 100%);
             color: white;
-            padding: 40px 20px;
+            padding: 40px 20px 36px;
             text-align: center;
         }
 
@@ -441,49 +544,57 @@
         .footer-icon {
             width: 40px;
             height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
+            background: rgba(15,23,42,0.9);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 18px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+            color: #e5e7eb;
         }
 
         .footer-icon:hover {
-            background: #2ecc71;
-            transform: translateY(-3px);
+            background: linear-gradient(135deg, #2ecc71, #22c55e);
+            transform: translateY(-4px);
+            box-shadow: 0 14px 32px rgba(34,197,94,0.7);
+            color: #f9fafb;
         }
 
         .footer-text {
-            color: #95a5a6;
-            font-size: 14px;
+            color: #9ca3af;
+            font-size: 13px;
         }
 
         /* 响应式设计 */
         @media (max-width: 768px) {
             .nav-links {
-                gap: 15px;
-                font-size: 14px;
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .hero {
+                height: 460px;
             }
 
             .hero h1 {
-                font-size: 32px;
+                font-size: 30px;
             }
 
             .hero p {
-                font-size: 16px;
+                font-size: 15px;
             }
 
             .category-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
+                gap: 18px;
             }
 
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
+                gap: 18px;
             }
 
             .series-grid {
@@ -503,6 +614,14 @@
 
             .hero h1 {
                 font-size: 24px;
+            }
+
+            .product-card {
+                border-radius: 14px;
+            }
+
+            .series-card {
+                border-radius: 16px;
             }
         }
     </style>
@@ -527,6 +646,7 @@
     <!-- 主横幅 -->
     <section class="hero">
         <div class="hero-content">
+            <div class="hero-brand">天振门业</div>
             <div class="hero-tags">
                 <span class="tag">精选材质</span>
                 <span class="tag">时尚简约</span>
@@ -534,7 +654,7 @@
             </div>
             <h1>高雅的生活品质</h1>
             <p>舒适 / 舒心 / 惬意</p>
-            <a href="#products" class="btn-more">了解更多</a>
+            <a href="#products" class="btn-more" id="heroMoreBtn">了解更多</a>
         </div>
     </section>
 
@@ -654,7 +774,7 @@
                 <div class="series-content">
                     <h3 class="series-title">木门系列</h3>
                     <p class="series-desc">精选优质木材，精湛工艺制作，多种风格可选，为您的家增添自然温馨的氛围。</p>
-                    <a href="#" class="series-btn">了解更多</a>
+                    <a href="#" class="series-btn wechat-contact-btn">了解更多</a>
                 </div>
             </div>
             <div class="series-card" id="security-doors">
@@ -672,7 +792,7 @@
                         <img src="7fd46487779173d0335361a582bd1b1c.jpg"
                              alt="防盗门细节图2">
                     </div>
-                    <a href="#" class="series-btn">了解更多</a>
+                    <a href="#" class="series-btn wechat-contact-btn">了解更多</a>
                 </div>
             </div>
             <div class="series-card" id="sliding-doors">
@@ -688,7 +808,7 @@
                         <img src="10064720777d5f408eb473365324c9cb.jpg"
                              alt="推拉门细节图">
                     </div>
-                    <a href="#" class="series-btn">了解更多</a>
+                    <a href="#" class="series-btn wechat-contact-btn">了解更多</a>
                 </div>
             </div>
             <div class="series-card" id="glass-doors">
@@ -700,11 +820,25 @@
                 <div class="series-content">
                     <h3 class="series-title">玻璃门系列</h3>
                     <p class="series-desc">透明美观，采光充足，安全可靠，适合现代风格，营造通透明亮的空间。</p>
-                    <a href="#" class="series-btn">了解更多</a>
+                    <a href="#" class="series-btn wechat-contact-btn">了解更多</a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- 微信弹层 -->
+    <div class="wechat-modal-backdrop" id="wechatModal">
+        <div class="wechat-modal" onclick="event.stopPropagation();">
+            <div class="wechat-modal-close" id="wechatCloseBtn">×</div>
+            <div class="wechat-modal-title">添加微信了解详情</div>
+            <div class="wechat-modal-text">已为您准备好联系微信号，请先复制后再跳转到微信。</div>
+            <div class="wechat-modal-wechat" id="wechatIdText">微信号：18170916010</div>
+            <div class="wechat-modal-actions">
+                <button class="wechat-modal-btn wechat-modal-btn-copy" id="wechatCopyBtn">复制微信号</button>
+                <span class="wechat-modal-hint" id="wechatCopiedHint" style="display:none;">已复制，可在微信中粘贴搜索</span>
+            </div>
+        </div>
+    </div>
 
     <!-- 页脚 -->
     <footer class="footer">
@@ -747,6 +881,105 @@
                 console.log('点击了产品卡片');
             });
         });
+
+        // 微信联系功能
+        const wechatId = '18170916010';
+        const wechatModal = document.getElementById('wechatModal');
+        const wechatCopyBtn = document.getElementById('wechatCopyBtn');
+        const wechatCloseBtn = document.getElementById('wechatCloseBtn');
+        const wechatCopiedHint = document.getElementById('wechatCopiedHint');
+
+        function showWeChatModal() {
+            if (wechatModal) {
+                wechatModal.classList.add('show');
+                // 重置状态
+                if (wechatCopyBtn) {
+                    wechatCopyBtn.style.display = 'inline-block';
+                }
+                if (wechatCopiedHint) {
+                    wechatCopiedHint.style.display = 'none';
+                }
+            }
+        }
+
+        function hideWeChatModal() {
+            if (wechatModal) {
+                wechatModal.classList.remove('show');
+            }
+        }
+
+        function openWeChatContact() {
+            hideWeChatModal();
+            const msg = `是否打开微信，并添加微信号：${wechatId}？\n\n提示：如果未能直接跳到添加页面，请在微信中手动搜索此微信号。`;
+            if (confirm(msg)) {
+                // 尝试通过 weixin 协议打开微信（支持的设备/浏览器才会生效）
+                window.location.href = 'weixin://';
+            }
+        }
+
+        function copyWeChatAndThenOpen() {
+            // 复制微信号
+            const doAfterCopy = () => {
+                if (wechatCopyBtn) {
+                    wechatCopyBtn.style.display = 'none';
+                }
+                if (wechatCopiedHint) {
+                    wechatCopiedHint.style.display = 'inline';
+                }
+                // 复制后再询问是否跳转微信
+                openWeChatContact();
+            };
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(wechatId).then(doAfterCopy).catch(() => {
+                    doAfterCopy();
+                });
+            } else {
+                const input = document.createElement('input');
+                input.value = wechatId;
+                document.body.appendChild(input);
+                input.select();
+                try {
+                    document.execCommand('copy');
+                } catch (e) {}
+                document.body.removeChild(input);
+                doAfterCopy();
+            }
+        }
+
+        // 主横幅按钮
+        const heroMoreBtn = document.getElementById('heroMoreBtn');
+        if (heroMoreBtn) {
+            heroMoreBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showWeChatModal();
+            });
+        }
+
+        // 各系列“了解更多”按钮
+        document.querySelectorAll('.wechat-contact-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showWeChatModal();
+            });
+        });
+
+        // 微信弹层关闭和复制
+        if (wechatModal) {
+            wechatModal.addEventListener('click', hideWeChatModal);
+        }
+        if (wechatCloseBtn) {
+            wechatCloseBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                hideWeChatModal();
+            });
+        }
+        if (wechatCopyBtn) {
+            wechatCopyBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                copyWeChatAndThenOpen();
+            });
+        }
     </script>
 </body>
 </html>
